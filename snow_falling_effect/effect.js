@@ -9,7 +9,7 @@ canvas.height = window.innerHeight;
 const img = new Image();
 img.src = "snowflake.png";
 
-const sfMax = 210; //Number max of snowflakes
+const sfMax = 230; //Number max of snowflakes
 const sfArray = []; 
 
 for (let i = 0; i < sfMax; i++) {
@@ -29,22 +29,28 @@ const draw = () =>{
     ctx.clearRect(0,0, canvas.width, canvas.height);
 
     sfArray.forEach(e => {
-        ctx.drawImage(img, e.x,e.y, 10, 10);      
+        ctx.drawImage(img, e.x,e.y, 3, 3);      
     });   
     
     requestAnimationFrame(draw);
     move();
 }
 
-const move = ()=>{    
+// let swing = 0; if I want it to swing left & right
+
+
+const move = ()=>{   
+    
+    // swing += 0.01; 
 
     sfArray.forEach(e => {
        
         e.y += e.w ;
-        e.x += 0.3;           
+        e.x +=  0.3;  
+        // e.x +=  Math.sin(swing)*0.5;          
         
-       if(e.y > canvas.height)e.y = -20; //when they pass bottom, spam the snowflake above the top of the window, so they just dont pop up
-       if(e.x > canvas.width) e.x = -20; // same with width
+       if(e.y > canvas.height)e.y = -20; // Restart position if they got out of the canvas
+       if(e.x > canvas.width) e.x = -20; 
         
     });    
 
