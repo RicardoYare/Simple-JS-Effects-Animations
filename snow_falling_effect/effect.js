@@ -7,7 +7,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const img = new Image();
-img.src = "snowflake.png";
+img.src = "img/snowflake.png";
 
 const sfMax = 230; //Number max of snowflakes
 const sfArray = []; 
